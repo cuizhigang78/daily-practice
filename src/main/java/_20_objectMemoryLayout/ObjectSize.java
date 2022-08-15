@@ -18,6 +18,6 @@ public class ObjectSize {
         int[] array = new int[3];
         System.out.println(RamUsageEstimator.shallowSizeOf(array));
 
-        // System.out.println(ClassLayout.parseInstance(array).toPrintable());
+        System.out.println(ClassLayout.parseInstance(array).toPrintable());
     }
 }
