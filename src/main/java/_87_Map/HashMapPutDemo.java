@@ -1,6 +1,8 @@
 package _87_Map;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -18,36 +20,21 @@ public class HashMapPutDemo {
     public static void main(String[] args) throws InterruptedException {
         final HashMap<String, Object> hashMap = new HashMap<>(2);
 
-        Thread t = new Thread(() -> {
-            for (int i = 0; i < 10000; i++) {
-                new Thread(() -> {
+        List<Thread> threads = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            threads.add(new Thread(() -> {
+                for (int j = 0; j < 100; j++) {
                     hashMap.put(UUID.randomUUID().toString(), "");
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }, "ftf" + i).start();
-            }
-        }, "ftf");
-        t.start();
-        // 使用方法join()方法，给t线程插个队，main()线程需等等t执行完成
-        t.join();
-
-
-        /*int a = 3;
-        int b = 5;
-        System.out.println(a |= b); // 7*/
-
-        /*int cap = tableSizeFor(100);
-        System.out.println(cap);
-        for (int i = 0; i < 1000 ; i++) {
-            System.out.println((cap - 1) & i);
-        }*/
-
-        //System.out.println(31 & 9);  //9
-
-        //System.out.println(tableSizeFor(17));
+                }
+            }));
+        }
+        for (Thread thread : threads) {
+            thread.start();
+        }
+        for (Thread thread : threads) {
+            thread.join();
+        }
+        System.out.println(hashMap.size());
     }
 
     /**
