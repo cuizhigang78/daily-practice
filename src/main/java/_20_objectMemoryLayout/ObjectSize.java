@@ -10,6 +10,6 @@ public class ObjectSize {
     public static void main(String[] args) {
         Object obj = new Object();
         // System.out.println(RamUsageEstimator.shallowSizeOf(map));
-        System.out.println(ClassLayout.parseInstance(obj).toPrintable());
+        // System.out.println(ClassLayout.parseInstance(obj).toPrintable());
     }
 }
