@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b219fddb-b8d9-4fd7-916a-b41728fd563b" name="Default Changelist" comment="update">
-      <change afterPath="$PROJECT_DIR$/src/main/java/_87_Map/HashMap/MemoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/_20_objectMemoryLayout/ObjectSize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/_20_objectMemoryLayout/ObjectSize.java" afterDir="false" />
+    <list default="true" id="b219fddb-b8d9-4fd7-916a-b41728fd563b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/_87_Map/HashMap/HashMapApiTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +73,20 @@
       <recent name="E:\git-workspace\interview\src\main" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MemoryTest">
+  <component name="RunManager" selected="Application.HashMapApiTest">
+    <configuration name="HashMapApiTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="_87_Map.HashMap.HashMapApiTest" />
+      <module name="daily-practice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="_87_Map.HashMap.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="HashMapPutDemo (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="_87_Map.HashMapPutDemo" />
       <module name="daily-practice" />
@@ -115,19 +126,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReflectionSingleton" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.cui._88_singleton.ReflectionSingleton" />
-      <module name="daily-practice" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.cui._88_singleton.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="VolatileDemo" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.cui._01_volatile.VolatileDemo" />
       <module name="daily-practice" />
@@ -159,11 +157,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.HashMapApiTest" />
         <item itemvalue="Application.MemoryTest" />
         <item itemvalue="JUnit.DelayQueueTest.test1" />
         <item itemvalue="Application.ObjectSize" />
         <item itemvalue="Application.HashMapPutDemo (1)" />
-        <item itemvalue="Application.ReflectionSingleton" />
       </list>
     </recent_temporary>
   </component>
@@ -202,7 +200,7 @@
       <workItem from="1660724963418" duration="2279000" />
       <workItem from="1660873391090" duration="3100000" />
       <workItem from="1660877314002" duration="349000" />
-      <workItem from="1660926294914" duration="1867000" />
+      <workItem from="1660926294914" duration="3530000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1660583284597</created>
@@ -253,7 +251,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660877628704</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="update">
+      <created>1660929601762</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1660929601762</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView">
@@ -297,11 +302,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="739" y="425" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1920.1040@0.0.1920.1040" timestamp="1660583037715" />
-    <state x="558" y="86" key="CommitChangelistDialog2" timestamp="1660878162655">
+    <state x="558" y="86" key="CommitChangelistDialog2" timestamp="1660929597773">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="558" y="86" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1660878162655" />
-    <state x="558" y="86" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1660669516021" />
+    <state x="558" y="86" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1660929597773" />
     <state x="184" y="86" key="DiffContextDialog" timestamp="1660877658720">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -311,26 +316,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="568" height="689" key="Git.Branch.Popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1660877647416" />
-    <state width="1877" height="310" key="GridCell.Tab.0.bottom" timestamp="1660927418175">
+    <state width="1877" height="474" key="GridCell.Tab.0.bottom" timestamp="1660930931559">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="310" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1660877662470" />
-    <state width="1877" height="310" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1660927418175" />
-    <state width="1877" height="310" key="GridCell.Tab.0.center" timestamp="1660927418175">
+    <state width="1877" height="474" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1660930931559" />
+    <state width="1877" height="474" key="GridCell.Tab.0.center" timestamp="1660930931559">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="310" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1660877662470" />
-    <state width="1877" height="310" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1660927418175" />
-    <state width="1877" height="310" key="GridCell.Tab.0.left" timestamp="1660927418175">
+    <state width="1877" height="474" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1660930931559" />
+    <state width="1877" height="474" key="GridCell.Tab.0.left" timestamp="1660930931559">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="310" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1660877662470" />
-    <state width="1877" height="310" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1660927418175" />
-    <state width="1877" height="310" key="GridCell.Tab.0.right" timestamp="1660927418175">
+    <state width="1877" height="474" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1660930931559" />
+    <state width="1877" height="474" key="GridCell.Tab.0.right" timestamp="1660930931559">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="310" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1660877662470" />
-    <state width="1877" height="310" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1660927418175" />
+    <state width="1877" height="474" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1660930931559" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1660876492706">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -359,11 +364,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="806" y="432" key="VCS.ChangelistChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1660876395625" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1660877659693">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1660929603967">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1660877659693" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1660669521492" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1660929603967" />
     <state x="334" y="180" key="new project wizard" timestamp="1660664558680">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
