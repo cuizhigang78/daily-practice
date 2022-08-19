@@ -20,7 +20,7 @@ target
 .settings
 
 # Idea
-.idea/libraries
+.idea
 *.iml
 
 # git

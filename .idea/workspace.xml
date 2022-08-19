@@ -2,22 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b219fddb-b8d9-4fd7-916a-b41728fd563b" name="Default Changelist" comment="update">
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__asm_asm_1_5_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__cglib_cglib_2_1_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__cn_hutool_hutool_captcha_5_3_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__cn_hutool_hutool_core_5_3_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_core_4_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjdk_jol_jol_core_0_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_0_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_0_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_0_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_0_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_0_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_0_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/_28_delay_queue/DelayObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/_28_delay_queue/DelayQueueConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/_28_delay_queue/DelayQueueProducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/_28_delay_queue/DelayQueueTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/_20_objectMemoryLayout/ObjectSize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/_20_objectMemoryLayout/ObjectSize.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,11 +61,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -88,7 +80,7 @@
       <recent name="E:\git-workspace\interview\src\main" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ReflectionSingleton">
+  <component name="RunManager" selected="JUnit.DelayQueueTest.test1">
     <configuration name="Calculator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="_11_stack.Calculator" />
       <module name="daily-practice" />
@@ -102,12 +94,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DesignPatternDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.cui._86_design_pattern.DesignPatternDemo" />
+    <configuration name="HashMapPutDemo (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="_87_Map.HashMapPutDemo" />
       <module name="daily-practice" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.cui._86_design_pattern.*" />
+          <option name="PATTERN" value="_87_Map.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -115,12 +107,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HashMapPutDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.cui._87_Map.HashMapPutDemo" />
+    <configuration name="ObjectSize" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="_20_objectMemoryLayout.ObjectSize" />
       <module name="daily-practice" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.cui._87_Map.*" />
+          <option name="PATTERN" value="_20_objectMemoryLayout.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -141,19 +133,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StringPoolDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.cui._10_String_pool.StringPoolDemo" />
-      <module name="daily-practice" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.cui._10_String_pool.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="VolatileDemo" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.cui._01_volatile.VolatileDemo" />
       <module name="daily-practice" />
@@ -167,13 +146,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DelayQueueTest.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="daily-practice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="_28_delay_queue.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="_28_delay_queue" />
+      <option name="MAIN_CLASS_NAME" value="_28_delay_queue.DelayQueueTest" />
+      <option name="METHOD_NAME" value="test1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DelayQueueTest.test1" />
+        <item itemvalue="Application.ObjectSize" />
+        <item itemvalue="Application.HashMapPutDemo (1)" />
         <item itemvalue="Application.ReflectionSingleton" />
         <item itemvalue="Application.Calculator" />
-        <item itemvalue="Application.HashMapPutDemo" />
-        <item itemvalue="Application.DesignPatternDemo" />
-        <item itemvalue="Application.StringPoolDemo" />
       </list>
     </recent_temporary>
   </component>
@@ -206,6 +201,11 @@
       <workItem from="1576761302830" duration="11614000" />
       <workItem from="1660582680424" duration="722000" />
       <workItem from="1660583445505" duration="494000" />
+      <workItem from="1660584056706" duration="1332000" />
+      <workItem from="1660664042015" duration="622000" />
+      <workItem from="1660664879114" duration="3430000" />
+      <workItem from="1660724963418" duration="2279000" />
+      <workItem from="1660873391090" duration="2978000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1660583284597</created>
@@ -228,31 +228,22 @@
       <option name="project" value="LOCAL" />
       <updated>1660583624176</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="update">
+      <created>1660584131249</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1660584131249</updated>
+    </task>
+    <task id="LOCAL-00005" summary="update">
+      <created>1660669519782</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1660669519782</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
-  </component>
-  <component name="TestHistory">
-    <history-entry file="TestSingleton3_test - 2019.11.18 at 00h 04m 48s.xml">
-      <configuration name="TestSingleton3.test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestSingleton3_test - 2019.11.18 at 00h 06m 29s.xml">
-      <configuration name="TestSingleton3.test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestSingleton3_test - 2019.11.18 at 00h 09m 17s.xml">
-      <configuration name="TestSingleton3.test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestSingleton3_test - 2019.11.18 at 00h 09m 38s.xml">
-      <configuration name="TestSingleton3.test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestSingleton3_test - 2019.11.18 at 00h 10m 23s.xml">
-      <configuration name="TestSingleton3.test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestSingleton3_test - 2019.11.18 at 00h 12m 41s.xml">
-      <configuration name="TestSingleton3.test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestSingleton3_test - 2019.11.18 at 00h 12m 57s.xml">
-      <configuration name="TestSingleton3.test" configurationId="JUnit" />
-    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -286,38 +277,81 @@
     <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1660873532815">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1660873532815" />
     <state x="739" y="425" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1660583037715">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="739" y="425" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1920.1040@0.0.1920.1040" timestamp="1660583037715" />
-    <state x="558" y="86" key="CommitChangelistDialog2" timestamp="1660583618595">
+    <state x="558" y="86" key="CommitChangelistDialog2" timestamp="1660669516021">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="558" y="86" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1660583618595" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1660583409152">
+    <state x="558" y="86" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1660613571282" />
+    <state x="558" y="86" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1660669516021" />
+    <state x="184" y="86" key="DiffContextDialog" timestamp="1660669505121">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1660583409152" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1660583409152">
+    <state x="184" y="86" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1660669505121" />
+    <state width="1877" height="310" key="GridCell.Tab.0.bottom" timestamp="1660876031613">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1660583409152" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1660583409152">
+    <state width="1877" height="310" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1660876031613" />
+    <state width="1877" height="273" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1660669409344" />
+    <state width="1877" height="310" key="GridCell.Tab.0.center" timestamp="1660876031613">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1660583409152" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1660583409152">
+    <state width="1877" height="310" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1660876031613" />
+    <state width="1877" height="273" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1660669409344" />
+    <state width="1877" height="310" key="GridCell.Tab.0.left" timestamp="1660876031613">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1660583409152" />
-    <state x="461" y="164" key="SettingsEditor" timestamp="1660583193073">
+    <state width="1877" height="310" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1660876031613" />
+    <state width="1877" height="273" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1660669409344" />
+    <state width="1877" height="310" key="GridCell.Tab.0.right" timestamp="1660876031613">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1660583193073" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1660583675983">
+    <state width="1877" height="310" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1660876031613" />
+    <state width="1877" height="273" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1660669409344" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1660875933076">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1660583675983" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1660875933076" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1660875933076">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1660875933076" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1660875933076">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1660875933076" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1660875933076">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1660875933076" />
+    <state x="490" y="174" key="Maven.ArtifactSearchDialog" timestamp="1660874615474">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="490" y="174" key="Maven.ArtifactSearchDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1660874615474" />
+    <state x="461" y="164" key="SettingsEditor" timestamp="1660664504432">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1660664504432" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1660669521492">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1660613578246" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1660669521492" />
+    <state x="334" y="180" key="new project wizard" timestamp="1660664558680">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="334" y="180" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1660664558680" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1660874122009">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1660874122009" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1660668910713" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -366,94 +400,5 @@
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>ibatis</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.7</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>interview</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.6" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.7</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Maven: junit:junit:4.12</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>
