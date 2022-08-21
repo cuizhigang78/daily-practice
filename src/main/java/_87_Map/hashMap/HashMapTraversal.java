@@ -1,7 +1,6 @@
-package _87_Map.HashMap;
+package _87_Map.hashMap;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -43,12 +42,8 @@ public class HashMapTraversal {
         }
     }
 
-    // 第四种，通过iterator，使用Map.Entry的迭代器，而不是Map.keySet()，原因同第二种
+    // 第四种，Lambda表达式
     public void iteratorMethod(Map<String, String> map) {
-        Iterator<Map.Entry<String, String>> iterator = map.entrySet().iterator();
-        while (iterator.hasNext()) {
-            Map.Entry<String, String> entry = iterator.next();
-            System.out.println(entry.getKey() + ":" + entry.getValue());
-        }
+        map.forEach((k, v) -> System.out.println(k + ":" + k));
     }
 }

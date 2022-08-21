@@ -1,24 +1,14 @@
-package _87_Map;
+package _87_Map.hashMap;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.UUID;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import org.junit.Test;
 
-/**
- * HashMap.put()
- * Java7使用头插法：出现循环引用
- *
- * Java8使用尾插法：Node无法强转为TreeNode
- *
- *
- */
+import java.util.*;
+
 public class HashMapPutDemo {
 
-    public static void main(String[] args) throws InterruptedException {
-        final HashMap<String, Object> hashMap = new HashMap<>(2);
+    @Test
+    public void test1() {
+        Map<String, Object> hashMap = new HashMap<>(2);
 
         List<Thread> threads = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
@@ -32,9 +22,27 @@ public class HashMapPutDemo {
             thread.start();
         }
         for (Thread thread : threads) {
-            thread.join();
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
         System.out.println(hashMap.size());
+    }
+
+    @Test
+    public void test2() {
+        Map<String, String> map = new HashMap<>();
+        for (int i = 0; i < 30; i++) {
+            new Thread(() -> {
+                map.put(Thread.currentThread().getName(), UUID.randomUUID().toString().substring(0, 8));
+                System.out.println(map);
+            }, String.valueOf(i)).start();
+        }
+        while (Thread.activeCount() > 2) {
+            Thread.yield();
+        }
     }
 
     /**
@@ -43,11 +51,10 @@ public class HashMapPutDemo {
      * 这么做的目的是为了能使HashMap中的元素均匀地分布，降低hash碰撞的可能。因为
      * hashMap储存元素时，生成下标的算法是通过（map的容量-1 & hash值），此时，下
      * 标只与hash值有关，从而实现了均匀分布。
-     *
      */
     static final int tableSizeFor(int cap) {
         int n = cap - 1;
-        n |= n >>> 1;
+        n = n | n >>> 1;
         n |= n >>> 2;
         n |= n >>> 4;
         n |= n >>> 8;

@@ -1,4 +1,4 @@
-package _87_Map.HashMap;
+package _87_Map.hashMap;
 
 import java.util.HashMap;
 import java.util.Map;

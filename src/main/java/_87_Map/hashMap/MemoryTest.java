@@ -1,6 +1,7 @@
-package _87_Map.HashMap;
+package _87_Map.hashMap;
 
 import org.apache.lucene.util.RamUsageEstimator;
+import org.junit.Test;
 import org.openjdk.jol.info.ClassLayout;
 
 import java.util.Map;
@@ -8,7 +9,8 @@ import java.util.Objects;
 
 public class MemoryTest {
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         Node node = new Node();
         // System.out.println(RamUsageEstimator.shallowSizeOf(node));
         System.out.println(ClassLayout.parseInstance(node).toPrintable());
@@ -20,7 +22,7 @@ public class MemoryTest {
         System.out.println(ClassLayout.parseInstance(treeNode).toPrintable());
     }
 
-    static class Node<K,V> implements Map.Entry<K,V> {
+    private static class Node<K,V> implements Map.Entry<K,V> {
         int hash;
         K key;
         V value;
@@ -66,7 +68,7 @@ public class MemoryTest {
     /**
      * HashMap.Node subclass for normal LinkedHashMap entries.
      */
-    static class Entry<K,V> extends Node<K,V> {
+    private static class Entry<K,V> extends Node<K,V> {
         Entry<K,V> before, after;
 
         public Entry() {
@@ -77,7 +79,7 @@ public class MemoryTest {
         }
     }
 
-    static final class TreeNode<K,V> extends Entry<K,V> {
+    private static class TreeNode<K,V> extends Entry<K,V> {
         TreeNode<K, V> parent;  // red-black tree links
         TreeNode<K, V> left;
         TreeNode<K, V> right;
