@@ -20,8 +20,8 @@ target
 .settings
 
 # Idea
-.idea
-*.iml
+.idea/
+target/
 
 # git
 *.orig
