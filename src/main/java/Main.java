@@ -1,3 +1,5 @@
+import org.junit.Test;
+
 /**
  * @ClassName Main
  * @Author Maxwell
@@ -7,7 +9,14 @@
  */
 public class Main {
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
+        int i = 0;
+        m(i);
+        System.out.println(i);
+    }
 
+    private void m(int i) {
+        i = 5;
     }
 }
