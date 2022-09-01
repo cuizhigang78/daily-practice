@@ -19,6 +19,7 @@ public class DirectBufferMemoryDemo {
     // 如果不断地分配本地内存，而不分配JVM内存，本地内存已满，而JVM却不会触发GC，DirectByteBuffer对象无法被回收。
     // 这时再尝试分配本地内存，就会出现OutOfMemoryError，导致程序崩溃。
     public static void main(String[] args) {
+        // JDK9 以后不再支持
         System.out.println("直接内存大小为：" + sun.misc.VM.maxDirectMemory() / (1024 * 1024) + "M");
         // 3627M 约等于机器内存的1/4
 

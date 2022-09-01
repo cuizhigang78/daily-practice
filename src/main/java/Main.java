@@ -1,4 +1,8 @@
+import _23_spring.A;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @ClassName Main
@@ -11,9 +15,10 @@ public class Main {
 
     @Test
     public void test() {
-        int i = 0;
-        m(i);
-        System.out.println(i);
+        List<Integer> list = new ArrayList<>();
+        for (Integer integer : list) {
+            System.out.println(integer);
+        }
     }
 
     private void m(int i) {

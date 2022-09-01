@@ -1,4 +1,4 @@
-package _09_dead_lock;
+package _30_dead_lock;
 
 import lombok.AllArgsConstructor;
 
