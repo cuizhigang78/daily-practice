@@ -9,9 +9,9 @@ public class HashMapApiTest {
         map.put(1, "a");
         map.put(2, "b");
         map.put(3, "c");
-        System.out.println(map);
+        // System.out.println(map);
 
-        map.compute(1, (k, v) -> v.toUpperCase());
+        map.computeIfPresent(null, (k, v) -> v.toUpperCase());
         System.out.println(map);
     }
 }

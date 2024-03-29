@@ -9,7 +9,10 @@ import java.util.Map;
 public class ObjectSize {
     public static void main(String[] args) {
         Object obj = new Object();
-        // System.out.println(RamUsageEstimator.shallowSizeOf(map));
-        // System.out.println(ClassLayout.parseInstance(obj).toPrintable());
+        Map<String, String> map = new HashMap<>();
+        map.put("1", "1");
+        System.out.println(RamUsageEstimator.sizeOf(obj));
+        System.out.println(RamUsageEstimator.shallowSizeOf(obj));
+        System.out.println(ClassLayout.parseInstance(obj).toPrintable());
     }
 }
