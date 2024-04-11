@@ -2,6 +2,13 @@ package _04_pass_value;
 
 import _99_common.entity.Person;
 
+/**
+ * 所谓值传递，就是把实参的值，拷贝一份给形参
+ *
+ * 对于基本数据类型，拷贝的是值
+ *
+ * 对于引用类型，拷贝的是引用的地址，也就是说，形参和实参是指向同一个对象的两个引用，改变形参指向的对象，不会改变实参指向的对象
+ */
 public class TestPassValue {
     public void changeValue1(int age) {
         age = 30;
