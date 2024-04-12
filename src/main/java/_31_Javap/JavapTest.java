@@ -14,9 +14,9 @@ public class JavapTest {
         return x;
     }
     // # 编译
-    // javac JavapTest.java
+    // javac .\JavapTest.java
     // # 使用javap 查看 add 方法被编译后的机器指令
-    // javap -v[erbose] JavapTest.class
+    // javap -v[erbose] .\JavapTest.class
     //
     // public int add(int);
     //    descriptor: (I)I
