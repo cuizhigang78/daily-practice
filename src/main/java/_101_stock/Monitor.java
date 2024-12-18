@@ -3,6 +3,8 @@ package _101_stock;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Monitor {
 
@@ -16,10 +18,23 @@ public class Monitor {
         consoleHandler.setFormatter(new Formatter() {
             @Override
             public String format(LogRecord record) {
+                // 找到日志中所有百分比数字，如果大于0，就用红色显示，如果小于0，就用绿色显示，否则用默认颜色显示
+                String msg = record.getMessage();
+                Pattern pattern = Pattern.compile("-?\\d+\\.\\d+%");
+                Matcher matcher = pattern.matcher(msg);
+                while (matcher.find()) {
+                    double rate = Double.parseDouble(matcher.group().replace("%", ""));
+                    if (rate > 0) {
+                        msg = msg.replace(matcher.group(), "\u001B[31m" + matcher.group() + "\u001B[0m");
+                    } else if (rate < 0) {
+                        msg = msg.replace(matcher.group(), "\u001B[32m" + matcher.group() + "\u001B[0m");
+                    }
+                }
+                record.setMessage(msg);
                 if (record.getLevel().intValue() >= Level.WARNING.intValue()) {
-                    return "\u001B[31m" + formatMessage(record) + "\u001B[0m\n";
+                    return "\u001B[31m" + "警告：" + "\u001B[0m" + formatMessage(record) + "\n";
                 } else if (record.getLevel().intValue() == Level.INFO.intValue()) {
-                    return "\u001B[32m" + formatMessage(record) + "\u001B[0m\n";
+                    return "\u001B[32m" + "正常：" + "\u001B[0m" + formatMessage(record) + "\n";
                 } else {
                     return formatMessage(record) + "\n";
                 }
@@ -37,19 +52,43 @@ public class Monitor {
     private final double increaseRate;
     // 跌幅
     private final double decreaseRate;
+    // 是否监控当前正处于最低价
+    private final boolean isWatchLowestPrice;
+    // 是否监控当前正处于最高价
+    private final boolean isWatchHighestPrice;
+
+    public Monitor(String stockCode, double costPrice, boolean isWatchHighestPrice) {
+        this(stockCode, costPrice, INCREASE_RATE, DECREASE_RATE, false);
+    }
 
     public Monitor(String stockCode, double costPrice) {
-        this.costPrice = costPrice;
-        this.stockCode = stockCode;
-        this.increaseRate = INCREASE_RATE;
-        this.decreaseRate = DECREASE_RATE;
+        this(stockCode, costPrice, INCREASE_RATE, DECREASE_RATE, false);
     }
 
     public Monitor(String stockCode, double costPrice, double rate) {
+        this(stockCode, costPrice, rate, rate, false);
+    }
+
+    public Monitor(String stockCode, double costPrice, double increaseRate, double decreaseRate) {
+        this(stockCode, costPrice, increaseRate, decreaseRate, false);
+    }
+
+    public Monitor(String stockCode, double costPrice, double increaseRate, double decreaseRate, boolean isWatchLowestPrice) {
         this.costPrice = costPrice;
         this.stockCode = stockCode;
-        this.increaseRate = rate;
-        this.decreaseRate = rate;
+        this.increaseRate = increaseRate;
+        this.decreaseRate = decreaseRate;
+        this.isWatchLowestPrice = isWatchLowestPrice;
+        this.isWatchHighestPrice = false;
+    }
+
+    public Monitor(String stockCode, double costPrice, double increaseRate, double decreaseRate, boolean isWatchLowestPrice, boolean isWatchHighestPrice) {
+        this.costPrice = costPrice;
+        this.stockCode = stockCode;
+        this.increaseRate = increaseRate;
+        this.decreaseRate = decreaseRate;
+        this.isWatchLowestPrice = isWatchLowestPrice;
+        this.isWatchHighestPrice = isWatchHighestPrice;
     }
 
     protected Integer getSleepTime() {
@@ -62,20 +101,31 @@ public class Monitor {
         String stockName = stockInfo.getName();
         // 当前价
         double currentPrice = stockInfo.getCurrentPrice();
+        // 最低价
+        double lowPrice = stockInfo.getLow();
+        // 涨跌幅
+        double changePercent = stockInfo.getChangePercent();
         // 当前价比开盘价涨幅大于等于INCREASE_RATE时，卖出；当前价比开盘价跌幅大于等于DECREASE_RATE时，买入。
         double rate = ((currentPrice - costPrice) / costPrice) * 100;
         // 保留两位小数
         rate = (double) Math.round(rate * 100) / 100;
         if (rate >= increaseRate) {
-            String msg = String.format("%s 当前价：%.2f，涨 %.2f%%，卖出", stockName, currentPrice, rate);
+            String msg = String.format("%tT 《%s》 当前价：%.2f，涨 %.2f%%，卖出", System.currentTimeMillis(), stockName, currentPrice, rate);
             alert(msg);
         } else if (rate <= -decreaseRate) {
-            String msg = String.format("%s 当前价：%.2f，跌 %.2f%%，买入", stockName, currentPrice, rate);
+            String msg = String.format("%tT 《%s》 当前价：%.2f，跌 %.2f%%，买入", System.currentTimeMillis(), stockName, currentPrice, rate);
             alert(msg);
         } else {
-            String msg = String.format("%s 当前价：%.2f，持仓涨跌：%.2f%%，不操作", stockName, currentPrice, rate);
+            String msg = String.format("%tT 《%s》 当前价：%.2f，最低价：%.2f，当日涨幅：%.2f%%，持仓涨幅：%.2f%%，不操作", System.currentTimeMillis(), stockName, currentPrice, lowPrice, changePercent, rate);
             logger.log(Level.INFO, msg);
-
+        }
+        if (isWatchLowestPrice && currentPrice <= lowPrice) {
+            String msg = String.format("%tT 《%s》 当前价：%.2f，处于当日最低价：%.2f，买入", System.currentTimeMillis(), stockName, currentPrice, lowPrice);
+            alert(msg);
+        }
+        if (isWatchHighestPrice && currentPrice >= stockInfo.getHigh()) {
+            String msg = String.format("%tT 《%s》 当前价：%.2f，处于当日最高价：%.2f，卖出", System.currentTimeMillis(), stockName, currentPrice, stockInfo.getHigh());
+            alert(msg);
         }
     }
 
