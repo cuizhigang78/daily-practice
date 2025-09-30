@@ -1,4 +1,4 @@
-package _101_stock;
+package _88_stock;
 
 public class StockServiceTest {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package _101_stock;
+package _88_stock;
 
 import lombok.Getter;
 import lombok.Setter;
