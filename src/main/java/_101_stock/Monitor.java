@@ -1,6 +1,7 @@
 package _101_stock;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.*;
 import java.util.regex.Matcher;
@@ -30,6 +31,10 @@ public class Monitor {
                         msg = msg.replace(matcher.group(), "\u001B[32m" + matcher.group() + "\u001B[0m");
                     }
                 }
+                // 找到日志中“持有”，把股票名称用黄色显示
+                if (msg.contains("持有")) {
+                    msg = msg.replace("《", "\u001B[33m《").replace("》", "》\u001B[0m");
+                }
                 record.setMessage(msg);
                 if (record.getLevel().intValue() >= Level.WARNING.intValue()) {
                     return "\u001B[31m" + "警告：" + "\u001B[0m" + formatMessage(record) + "\n";
@@ -56,6 +61,12 @@ public class Monitor {
     private final boolean isWatchLowestPrice;
     // 是否监控当前正处于最高价
     private final boolean isWatchHighestPrice;
+    // 是否持仓
+    private boolean isHold;
+
+    public void setHold(boolean hold) {
+        isHold = hold;
+    }
 
     public Monitor(String stockCode, double costPrice, boolean isWatchHighestPrice) {
         this(stockCode, costPrice, INCREASE_RATE, DECREASE_RATE, false);
@@ -91,6 +102,17 @@ public class Monitor {
         this.isWatchHighestPrice = isWatchHighestPrice;
     }
 
+    public Monitor(String stockCode, double costPrice, double increaseRate, double decreaseRate, boolean isWatchLowestPrice, boolean isWatchHighestPrice, boolean isHold) {
+        this.costPrice = costPrice;
+        this.stockCode = stockCode;
+        this.increaseRate = increaseRate;
+        this.decreaseRate = decreaseRate;
+        this.isWatchLowestPrice = isWatchLowestPrice;
+        this.isWatchHighestPrice = isWatchHighestPrice;
+        this.isHold = isHold;
+    }
+
+
     protected Integer getSleepTime() {
         return 60;
     }
@@ -103,30 +125,36 @@ public class Monitor {
         double currentPrice = stockInfo.getCurrentPrice();
         // 最低价
         double lowPrice = stockInfo.getLow();
+        // 最高价
+        double highPrice = stockInfo.getHigh();
         // 涨跌幅
         double changePercent = stockInfo.getChangePercent();
         // 当前价比开盘价涨幅大于等于INCREASE_RATE时，卖出；当前价比开盘价跌幅大于等于DECREASE_RATE时，买入。
         double rate = ((currentPrice - costPrice) / costPrice) * 100;
         // 保留两位小数
         rate = (double) Math.round(rate * 100) / 100;
-        if (rate >= increaseRate) {
-            String msg = String.format("%tT 《%s》 当前价：%.2f，涨 %.2f%%，卖出", System.currentTimeMillis(), stockName, currentPrice, rate);
+        if (rate >= increaseRate && isHold) {
+            String msg = String.format("%s，%tT 《%s》 当前价：%.2f，涨 %.2f%%，卖出", hold(isHold), System.currentTimeMillis(), stockName, currentPrice, rate);
             alert(msg);
         } else if (rate <= -decreaseRate) {
-            String msg = String.format("%tT 《%s》 当前价：%.2f，跌 %.2f%%，买入", System.currentTimeMillis(), stockName, currentPrice, rate);
+            String msg = String.format("%s，%tT 《%s》 当前价：%.2f，跌 %.2f%%，买入", hold(isHold), System.currentTimeMillis(), stockName, currentPrice, rate);
             alert(msg);
         } else {
-            String msg = String.format("%tT 《%s》 当前价：%.2f，最低价：%.2f，当日涨幅：%.2f%%，持仓涨幅：%.2f%%，不操作", System.currentTimeMillis(), stockName, currentPrice, lowPrice, changePercent, rate);
+            String msg = String.format("%s，%tT 《%s》 当前价：%.2f，最低价：%.2f，最高价：%.2f，当日涨幅：%.2f%%，持仓涨幅：%.2f%%，不操作", hold(isHold), System.currentTimeMillis(), stockName, currentPrice, lowPrice, highPrice, changePercent, rate);
             logger.log(Level.INFO, msg);
         }
         if (isWatchLowestPrice && currentPrice <= lowPrice) {
             String msg = String.format("%tT 《%s》 当前价：%.2f，处于当日最低价：%.2f，买入", System.currentTimeMillis(), stockName, currentPrice, lowPrice);
             alert(msg);
         }
-        if (isWatchHighestPrice && currentPrice >= stockInfo.getHigh()) {
+        if (isWatchHighestPrice && currentPrice >= highPrice) {
             String msg = String.format("%tT 《%s》 当前价：%.2f，处于当日最高价：%.2f，卖出", System.currentTimeMillis(), stockName, currentPrice, stockInfo.getHigh());
             alert(msg);
         }
+    }
+
+    private String hold(boolean isHold) {
+        return isHold ? "持有" : "未持";
     }
 
     private void alert(String msg) {
@@ -149,6 +177,12 @@ public class Monitor {
             try {
                 monitor();
                 TimeUnit.SECONDS.sleep(getSleepTime());
+
+                // 下午3点后自动退出
+                if (LocalDateTime.now().getHour() >= 15 && LocalDateTime.now().getMinute() >= 1) {
+                    System.out.println("下午3点后自动退出");
+                    break;
+                }
             } catch (Exception e) {
                 logger.log(Level.SEVERE, "监控异常", e);
                 return;

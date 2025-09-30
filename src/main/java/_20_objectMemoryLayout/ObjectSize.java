@@ -10,7 +10,11 @@ public class ObjectSize {
     public static void main(String[] args) {
         Object obj = new Object();
         Map<String, String> map = new HashMap<>();
-        map.put("1", "1");
+        // 放1000000个数据
+        for (int i = 0; i < 1000000; i++) {
+            map.put("key" + i, "value" + i);
+        }
+        map.entrySet().stream().map(RamUsageEstimator::sizeOf).reduce(Long::sum).ifPresent(System.out::println);
         System.out.println(RamUsageEstimator.sizeOf(obj));
         System.out.println(RamUsageEstimator.shallowSizeOf(obj));
         System.out.println(ClassLayout.parseInstance(obj).toPrintable());

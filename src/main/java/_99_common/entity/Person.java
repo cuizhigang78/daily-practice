@@ -1,5 +1,6 @@
 package _99_common.entity;
 
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
