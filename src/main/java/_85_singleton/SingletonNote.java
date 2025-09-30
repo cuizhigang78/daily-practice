@@ -1,4 +1,4 @@
-package _88_singleton;
+package _85_singleton;
 
 /**
  * 1. 饿汉式：直接创建对象，无论是否需要。不存在线程安全问题。

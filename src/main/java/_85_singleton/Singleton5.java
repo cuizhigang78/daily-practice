@@ -1,4 +1,4 @@
-package _88_singleton;
+package _85_singleton;
 
 /**
  * 懒汉2 线程安全版

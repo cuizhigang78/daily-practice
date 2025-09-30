@@ -1,4 +1,4 @@
-package _88_singleton;
+package _85_singleton;
 
 import java.io.IOException;
 import java.util.Properties;

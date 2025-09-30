@@ -1,4 +1,4 @@
-package _88_singleton;
+package _85_singleton;
 
 /**
  * 饿汉1

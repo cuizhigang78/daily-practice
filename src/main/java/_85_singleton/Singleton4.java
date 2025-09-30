@@ -1,4 +1,4 @@
-package _88_singleton;
+package _85_singleton;
 
 /**
  * 懒汉1 存在线程安全问题
